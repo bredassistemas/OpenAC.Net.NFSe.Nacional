@@ -127,6 +127,18 @@ public abstract class NFSeWebserviceBase : IOpenLog
     public abstract Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps);
 
     /// <summary>
+    /// Recepciona a DPS informando o número da NFS-e definido pelo próprio prestador (ex.: SigISS).
+    /// Nos demais provedores o número é ignorado.
+    /// </summary>
+    public virtual Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps, long numeroNFSe) => EnviarAsync(dps);
+
+    /// <summary>
+    /// Consulta a situação de uma nota a partir do protocolo retornado no envio (ex.: SigISS).
+    /// </summary>
+    public virtual Task<NFSeResponse<RespostaConsultaProtocolo>> ConsultarProtocoloAsync(string protocolo) =>
+        throw OperacaoNaoSuportada(nameof(ConsultarProtocoloAsync));
+
+    /// <summary>
     /// Recepciona um lote de DPS de forma assíncrona, retornando o protocolo para acompanhamento.
     /// </summary>
     /// <param name="lote">Lote de DPS a ser enviado.</param>

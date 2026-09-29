@@ -80,6 +80,53 @@ public sealed class OpenNFSeNacional : IOpenLog
             ServicePointManager.SecurityProtocol = oldProtocol;
         }
     }
+    /// <summary>
+    /// Recepciona a DPS informando o número da NFS-e definido pelo prestador (ex.: SigISS).
+    /// </summary>
+    public Task<NFSeResponse<RespostaEnvioDps>> EnviarAsync(Dps dps, long numeroNFSe)
+    {
+        var provider = NFSeServiceManager.Instance.GetProvider(Configuracoes);
+        var oldProtocol = ServicePointManager.SecurityProtocol;
+
+        try
+        {
+            ServicePointManager.SecurityProtocol = Configuracoes.WebServices.Protocolos;
+            return provider.EnviarAsync(dps, numeroNFSe);
+        }
+        catch (Exception exception)
+        {
+            this.Log().Error("[Enviar]", exception);
+            throw;
+        }
+        finally
+        {
+            ServicePointManager.SecurityProtocol = oldProtocol;
+        }
+    }
+
+    /// <summary>
+    /// Consulta a situação de uma nota a partir do protocolo retornado no envio (ex.: SigISS).
+    /// </summary>
+    public Task<NFSeResponse<RespostaConsultaProtocolo>> ConsultarProtocoloAsync(string protocolo)
+    {
+        var provider = NFSeServiceManager.Instance.GetProvider(Configuracoes);
+        var oldProtocol = ServicePointManager.SecurityProtocol;
+
+        try
+        {
+            ServicePointManager.SecurityProtocol = Configuracoes.WebServices.Protocolos;
+            return provider.ConsultarProtocoloAsync(protocolo);
+        }
+        catch (Exception exception)
+        {
+            this.Log().Error("[ConsultarProtocolo]", exception);
+            throw;
+        }
+        finally
+        {
+            ServicePointManager.SecurityProtocol = oldProtocol;
+        }
+    }
 
     /// <summary>
     /// Recepciona o Pedido de Registro de Evento e gera eventos de NFS-e, crédito, débito e apuração.

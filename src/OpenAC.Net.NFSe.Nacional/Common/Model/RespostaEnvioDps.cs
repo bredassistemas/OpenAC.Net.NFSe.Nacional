@@ -71,6 +71,12 @@ public sealed class RespostaEnvioDps : RespostaBase
     public string XmlNFSe { get; set; } = string.Empty;
 
     /// <summary>
+    /// Protocolo de recepção, retornado por provedores com processamento assíncrono (ex.: SigISS).
+    /// </summary>
+    [JsonPropertyName("protocolo")]
+    public string Protocolo { get; set; } = string.Empty;
+
+    /// <summary>
     /// Instância da nota fiscal de serviço desserializada a partir do XML.
     /// </summary>
     [JsonIgnore] 

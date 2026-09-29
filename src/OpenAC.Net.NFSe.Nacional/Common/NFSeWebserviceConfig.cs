@@ -82,6 +82,16 @@ public sealed class NFSeWebserviceConfig : DFeWebserviceConfigBase
     public string? InscricaoMunicipal { get; set; }
 
     /// <summary>
+    /// Senha do prestador junto ao município (ex.: SigISS, onde o usuário é a InscricaoMunicipal).
+    /// </summary>
+    public string? Senha { get; set; }
+
+    /// <summary>
+    /// CNPJ do prestador usado nas consultas do SigISS (cabeçalho X-NFSe-Prestador-CNPJ).
+    /// </summary>
+    public string? CnpjPrestador { get; set; }
+
+    /// <summary>
     /// Define se a aplicação deve validar o XML contra os schemas XSD antes do envio.
     /// </summary>
     public bool ValidarSchemas { get; set; }  = true;
