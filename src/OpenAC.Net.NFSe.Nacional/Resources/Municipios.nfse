@@ -30,6 +30,23 @@
 				</Ambiente>
 			</Ambientes>
 		</serviceInfo>
+		<serviceInfo Id="3529005">
+			<Tipo>SigISS</Tipo>
+			<Nome>MARÍLIA</Nome>
+			<UF>SP</UF>
+			<Ambientes>
+				<Ambiente Tipo="2">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://qa-webservice.meumunicipio.online/v1/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+				<Ambiente Tipo="1">
+					<Enderecos>
+						<Endereco Tipo="Enviar">https://webservice.meumunicipio.online/v1/nfse</Endereco>
+					</Enderecos>
+				</Ambiente>
+			</Ambientes>
+		</serviceInfo>
 		<serviceInfo Id="3514106">
 			<Tipo>SimplISS</Tipo>
 			<Nome>DOIS CÓRREGOS</Nome>

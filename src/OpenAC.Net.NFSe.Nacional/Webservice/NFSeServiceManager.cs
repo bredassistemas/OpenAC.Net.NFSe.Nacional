@@ -63,6 +63,13 @@ public sealed class NFSeServiceManager
                     { VersaoNFSe.Ve100, typeof(Fiorilli.FiorilliWebService) },
                     { VersaoNFSe.Ve101, typeof(Fiorilli.FiorilliWebService) }
                 }
+            },
+            {
+                NFSeProvider.SigISS, new Dictionary<VersaoNFSe, Type>
+                {
+                    { VersaoNFSe.Ve100, typeof(SigISS.SigISSWebService) },
+                    { VersaoNFSe.Ve101, typeof(SigISS.SigISSWebService) }
+                }
             }
         };
 
